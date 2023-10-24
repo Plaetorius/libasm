@@ -1,0 +1,25 @@
+{
+	"files.associations": {
+		"*.tcc": "cpp",
+		"cstring": "cpp",
+		"exception": "cpp",
+		"iosfwd": "cpp",
+		"iostream": "cpp",
+		"istream": "cpp",
+		"ostream": "cpp",
+		"streambuf": "cpp",
+		"cctype": "cpp",
+		"clocale": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"cstdint": "cpp",
+		"cwchar": "cpp",
+		"cwctype": "cpp",
+		"new": "cpp",
+		"stdexcept": "cpp",
+		"string": "cpp",
+		"system_error": "cpp",
+		"type_traits": "cpp",
+		"typeinfo": "cpp"
+	}
+}
