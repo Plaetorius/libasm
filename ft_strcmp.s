@@ -9,7 +9,18 @@ ft_strcmp:
 	xor		rcx, rcx
 
 .loop:
+	mov		al, [rdi + rcx]
+	mov		bl, [rsi + rcx]
+	test	al, bl
+	jne		.end
+	or		al, al
+	jz		.end
+	inc		rcx
+	jmp		.loop
 	
-
 .end:
-	sub	[rdi + rcx], [rsi + rcx]
+	;epilogue
+	mov		rsp, rbp
+	pop		rbp
+	sub		eax, ebx
+	ret
