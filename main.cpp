@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
+#include <cerrno>
 #define RED "\033[1;31m"
 #define GRE "\033[1;32m"
 #define BLU "\033[1;34m"
@@ -23,7 +24,23 @@ bool	test_strlen()
 bool	test_write()
 {
 	const char* str = "Hi";
-	ft_write(1, str, 2);
+	int tmp_errno = 0;
+
+	if (ft_write(1, str, 3) != write(1, str, 3))
+		return false;
+	if (ft_write(1, str, 0) != write(1, str, 0))
+		return false;
+	if (ft_write(1, str, 1) != write(1, str, 1))
+		return false;
+	if (ft_write(1, str, 12) != write(1, str, 12))
+		return false;
+	errno = 0;
+	write(-1, str, 1);
+	tmp_errno = errno;
+	errno = 0;
+	ft_write(-1, str, 1);
+	if (errno != tmp_errno)
+		std::cout << "Errno error" << std::endl;
 	return true;
 }
 
@@ -41,9 +58,9 @@ int main() {
 	sleep(1);
 	if (!test_write())
 	{
-	std::cout << RED << ACT << "failure!" << RES << std::endl;
+	// std::cout << RED << ACT << "failure!" << RES << std::endl;
 		return 1;
 	}
-	std::cout << GRE << ACT << "success!" << RES << std::endl;
+	// std::cout << GRE << ACT << "success!" << RES << std::endl;
     return 0;
 }

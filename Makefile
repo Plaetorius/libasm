@@ -1,5 +1,5 @@
 # Variables
-SRCS = ft_strlen.s ft_write.s
+SRCS = ft_strlen.s ft_write.s ft_read.s ft_strcpy.s
 BSRCS = 
 OBJS = $(SRCS:.s=.o)
 BOBJS = 
@@ -12,7 +12,7 @@ libasm.a: $(OBJS)
 %.o: %.s
 	@nasm -f elf64 $< -o $@
 
-test: libasm.a
+test: re libasm.a
 	@g++ -c main.cpp -o main.o
 	@g++ main.o -L. -lasm -o testmain -no-pie
 	@./testmain

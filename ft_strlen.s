@@ -1,17 +1,25 @@
+bits 64
+section .text
 global ft_strlen
 
-section .text
 ft_strlen:
-	xor rcx, rcx ; rcx is the traditionnal register used for loops
+	; prologue
+	push	rbp
+	mov		rbp, rsp
+
+	xor		rcx, rcx ; rcx is the traditionnal register used for loops
 	
 .loop:
-	mov al, [rdi]
-	test al, al
-	jz .end
-	inc rdi
-	inc rcx
-	jmp .loop
+	mov		al, [rdi + rcx]
+	test	al, al
+	jz		.end
+	inc		rcx
+	jmp		.loop
 
 .end:
-	mov rax, rcx
+	; epilogue
+	mov		rsp, rbp
+	pop		rbp
+	
+	mov		rax, rcx
 	ret

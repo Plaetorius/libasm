@@ -1,14 +1,14 @@
 bits 64
 section .text
-global ft_write
+global ft_read
 extern __errno_location
 
-ft_write:
+ft_read:
 	; prologue
     push	rbp
 	mov		rbp, rsp
 
-	mov		rax, 1
+	xor		rax, rax ; faster than mov rax, 0
     syscall
 
 	or		rax, rax
