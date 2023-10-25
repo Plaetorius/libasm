@@ -11,7 +11,7 @@ ft_strcmp:
 .loop:
 	mov		al, [rdi + rcx]
 	mov		bl, [rsi + rcx]
-	test	al, bl
+	cmp		al, bl
 	jne		.end
 	or		al, al
 	jz		.end
