@@ -1,8 +1,8 @@
 # Variables
-SRCS = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
-BSRCS = 
+SRCS = $(addprefix mandatory/, ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s)
+BSRCS = $(addprefix bonus/, )
 OBJS = $(SRCS:.s=.o)
-BOBJS = 
+BOBJS = $(BSRCS:.s=.o) 
 
 all: libasm.a
 
@@ -11,6 +11,9 @@ libasm.a: $(OBJS)
 
 %.o: %.s
 	@nasm -f elf64 $< -o $@
+
+bonus: $(OBJS) $(BOBJS)
+	@ar rcs $@ $^
 
 test: re libasm.a
 	@g++ -c main.cpp -o main.o

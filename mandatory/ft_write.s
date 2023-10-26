@@ -28,5 +28,4 @@ ft_write:
 	;epilogue
 	mov		rsp, rbp
 	pop		rbp
-
     ret
