@@ -1,11 +1,13 @@
 bits 64
 section .text
-global strcmp
+global ft_strcmp
 
 ft_strcmp:
 	;prologue
 	push	rbp
 	mov		rbp, rsp
+	xor		rax, rax
+	xor		rbx, rbx
 	xor		rcx, rcx
 
 .loop:

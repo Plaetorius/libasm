@@ -20,4 +20,5 @@ ft_strcpy:
 	; epilogue
 	mov		rsp, rbp
 	pop		rbp
+	mov		rax, rdi
 	ret

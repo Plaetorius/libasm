@@ -2,6 +2,7 @@
 #include <cstring>
 #include <unistd.h>
 #include <cerrno>
+#include <cstdlib>
 #define RED "\033[1;31m"
 #define GRE "\033[1;32m"
 #define BLU "\033[1;34m"
@@ -9,8 +10,9 @@
 #define ACT "\b \b\b \b\b \b "
 
 extern "C" {
-    size_t ft_strlen(const char*);
-	size_t ft_write(int, const char*, size_t);
+    size_t	ft_strlen(const char*);
+	size_t	ft_write(int, const char*, size_t);
+	int		ft_strcmp(const char *s1, const char *s2);
 }
 
 bool	test_strlen()
@@ -62,5 +64,9 @@ int main() {
 		return 1;
 	}
 	// std::cout << GRE << ACT << "success!" << RES << std::endl;
+	printf("\n");
+	const char *a = "\0";
+	const char *b = "\0";
+	printf("REAL %d : %d ASM\n", strcmp(a, b), ft_strcmp(a, b));
     return 0;
 }

@@ -12,8 +12,8 @@ ft_write:
     syscall
 
 	or		rax, rax
-	jl .error_handling
-	jmp .end
+	jl		.error_handling
+	jmp		.end
 
 .error_handling:
 	push	rax
