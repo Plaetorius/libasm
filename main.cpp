@@ -13,6 +13,7 @@ extern "C" {
     size_t	ft_strlen(const char*);
 	size_t	ft_write(int, const char*, size_t);
 	int		ft_strcmp(const char *s1, const char *s2);
+	char	*ft_strchr(const char *s, int c);
 }
 
 bool	test_strlen()
@@ -46,9 +47,19 @@ bool	test_write()
 	return true;
 }
 
+bool	test_strchr()
+{
+	const char *str = "Test";
+	int c = 'T';
+	bool test = false;
+	printf("REAL %s : %s ASM\n", strchr(str, c), ft_strchr(str, c));
+	test |= (strchr(str, c) == ft_strchr(str, c));
+	return test;
+}
+
 int main() {
 	std::cout << BLU << "ft_strlen..." << RES << std::flush;
-	sleep(1);
+	// sleep(1);
 	if (!test_strlen())
 	{
 	std::cout << RED << ACT << "failure!" << RES << std::endl;
@@ -57,7 +68,7 @@ int main() {
 	std::cout << GRE << ACT << "success!" << RES << std::endl;
 
 	std::cout << BLU << "ft_write..." << RES << std::flush;
-	sleep(1);
+	// sleep(1);
 	if (!test_write())
 	{
 	// std::cout << RED << ACT << "failure!" << RES << std::endl;
@@ -65,8 +76,9 @@ int main() {
 	}
 	// std::cout << GRE << ACT << "success!" << RES << std::endl;
 	printf("\n");
-	const char *a = "\0";
-	const char *b = "\0";
-	printf("REAL %d : %d ASM\n", strcmp(a, b), ft_strcmp(a, b));
-    return 0;
+	// const char *a = "\0";
+	// const char *b = "\0";
+	// printf("REAL %d : %d ASM\n", strcmp(a, b), ft_strcmp(a, b));
+	test_strchr();
+	return 0;
 }

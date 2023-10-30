@@ -7,13 +7,13 @@ ft_strcmp:
 	push	rbp
 	mov		rbp, rsp
 	xor		rax, rax
-	xor		rbx, rbx
+	xor		rdx, rdx
 	xor		rcx, rcx
 
 .loop:
 	mov		al, [rdi + rcx]
-	mov		bl, [rsi + rcx]
-	cmp		al, bl
+	mov		dl, [rsi + rcx]
+	cmp		al, dl
 	jne		.end
 	or		al, al
 	jz		.end
@@ -24,5 +24,5 @@ ft_strcmp:
 	;epilogue
 	mov		rsp, rbp
 	pop		rbp
-	sub		eax, ebx
+	sub		eax, edx
 	ret

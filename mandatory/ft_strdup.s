@@ -4,6 +4,7 @@ section	.text
 global	ft_strdup
 extern	ft_strlen
 extern	ft_strcpy
+extern __errno_location
 extern	malloc
 
 ft_strdup:
@@ -19,6 +20,8 @@ ft_strdup:
 				
 	test	rax, rax
 	jnz		.copy_string
+	call	__errno_location
+	mov		dword [rax], 12		; setting errno to 12
 	xor		rax, rax
 	jmp		.end
 

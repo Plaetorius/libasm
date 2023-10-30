@@ -1,6 +1,6 @@
 # Variables
-SRCS = $(addprefix mandatory/, ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s)
-BSRCS = $(addprefix bonus/, )
+SRCS = $(addprefix mandatory/, ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s) bonus/ft_strchr.s
+# BSRCS = $(addprefix bonus/, ft_strchr.s)
 OBJS = $(SRCS:.s=.o)
 BOBJS = $(BSRCS:.s=.o) 
 

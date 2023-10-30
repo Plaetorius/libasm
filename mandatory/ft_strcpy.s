@@ -9,9 +9,9 @@ ft_strcpy:
 	xor		rcx, rcx
 
 .loop:
-	mov		bl, [rsi + rcx]
-	mov		[rdi + rcx], bl
-	or		bl, bl
+	mov		al, [rsi + rcx]
+	mov		[rdi + rcx], al
+	or		al, al
 	jz		.end
 	inc		rcx
 	jmp		.loop

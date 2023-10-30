@@ -18,10 +18,10 @@ ft_read:
 .error_handling:
 	push	rax
 	call	__errno_location
-	mov		rbx, rax
+	mov		rcx, rax
 	pop		rax
 	neg		rax
-	mov		[rbx], rax
+	mov		[rcx], rax
 	mov		rax, -1
 
 .end:
