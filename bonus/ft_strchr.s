@@ -3,6 +3,7 @@ bits 64
 section .text
 global ft_strchr
 
+; strchr(const char *s, int c)
 ft_strchr:
     ; prologue
     push    rbp
